@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ApartmentController;
+use App\Http\Controllers\api\AuthController;
 use App\Http\Controllers\Api\FilterController;
 use App\Http\Controllers\Api\MessageController;
 use App\Http\Controllers\StatisticController;
@@ -61,3 +62,8 @@ Route::get('/user', function () {
     //$user = Session::all();
     return response()->json($userTarget);
 });
+
+
+// Auth
+Route::post('/login', [AuthController::class, 'login']);
+Route::delete('/logout', [AuthController::class, 'logout']);
