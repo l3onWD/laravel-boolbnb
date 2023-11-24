@@ -55,15 +55,7 @@ Route::get('/services',  function () {
     return response()->json($services);
 });
 
-// User route
-Route::get('/user', function () {
-    $user = ModelsSession::select('user_id')->get();
-    $userTarget = User::where('id', '=', $user[0]['user_id'])->get();
-    //$user = Session::all();
-    return response()->json($userTarget);
-});
 
-
-// Auth
+// Auth routes
 Route::post('/login', [AuthController::class, 'login']);
 Route::delete('/logout', [AuthController::class, 'logout']);
